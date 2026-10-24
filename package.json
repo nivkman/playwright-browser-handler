@@ -1,0 +1,62 @@
+{
+  "name": "playwright-browser-handler",
+  "version": "1.0.0",
+  "description": "A convenient Playwright wrapper for browser automation. One line to open a browser, then navigate, click, fill forms, scrape links, take screenshots and collect downloads — with full access to Playwright underneath. Same API as puppet-browser-handler.",
+  "type": "module",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.js"
+    }
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nivkman/playwright-browser-handler.git"
+  },
+  "keywords": [
+    "playwright",
+    "browser",
+    "automation",
+    "headless",
+    "chromium",
+    "firefox",
+    "webkit",
+    "scraping",
+    "screenshots",
+    "downloads",
+    "web-automation",
+    "browser-automation",
+    "crawler",
+    "page-automation",
+    "web-testing",
+    "e2e",
+    "nodejs",
+    "wrapper",
+    "browser-handler",
+    "puppeteer-alternative"
+  ],
+  "author": "Niv Kaufman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nivkman/playwright-browser-handler/issues"
+  },
+  "homepage": "https://github.com/nivkman/playwright-browser-handler#readme",
+  "files": [
+    "src/"
+  ],
+  "dependencies": {
+    "logger-standard": "^2.0.0",
+    "playwright": "^1.64.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

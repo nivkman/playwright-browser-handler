@@ -31,10 +31,13 @@ jobs:
 
       # Both release steps skip until the NPM_TOKEN secret exists, so a push to a
       # fresh repo doesn't leave a version bump + tag behind with nothing published.
-      # (A job-level env var is not reliable inside a step `if`, hence the step output.)
+      # Check the secret itself: setup-node exports a placeholder NODE_AUTH_TOKEN
+      # (XXXXX-XXXXX-XXXXX-XXXXX) when it is empty, so that variable is never blank.
       - name: Check for npm token
         id: token
-        run: echo "present=$([ -n "$NODE_AUTH_TOKEN" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: echo "present=$([ -n "$NPM_TOKEN" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
 
       - name: Bump patch version
         if: steps.token.outputs.present == 'true'

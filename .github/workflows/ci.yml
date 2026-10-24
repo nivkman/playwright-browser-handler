@@ -31,8 +31,13 @@ jobs:
 
       # Both release steps skip until the NPM_TOKEN secret exists, so a push to a
       # fresh repo doesn't leave a version bump + tag behind with nothing published.
+      # (A job-level env var is not reliable inside a step `if`, hence the step output.)
+      - name: Check for npm token
+        id: token
+        run: echo "present=$([ -n "$NODE_AUTH_TOKEN" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+
       - name: Bump patch version
-        if: env.NODE_AUTH_TOKEN != ''
+        if: steps.token.outputs.present == 'true'
         run: |
           git config user.name  "eg-ci[bot]"
           git config user.email "ci@entergreat.com"
@@ -40,7 +45,7 @@ jobs:
           git push --follow-tags origin HEAD:main
 
       - name: Publish to npm
-        if: env.NODE_AUTH_TOKEN != ''
+        if: steps.token.outputs.present == 'true'
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

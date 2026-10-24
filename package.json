@@ -1,6 +1,6 @@
 {
   "name": "playwright-browser-handler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A convenient Playwright wrapper for browser automation. One line to open a browser, then navigate, click, fill forms, scrape links, take screenshots and collect downloads — with full access to Playwright underneath. Same API as puppet-browser-handler.",
   "type": "module",
   "main": "src/index.js",

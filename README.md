@@ -1,5 +1,7 @@
 # playwright-browser-handler 🎭
 
+[![npm version](https://img.shields.io/npm/v/playwright-browser-handler)](https://www.npmjs.com/package/playwright-browser-handler)
+
 [![npm version](https://img.shields.io/npm/v/playwright-browser-handler.svg)](https://www.npmjs.com/package/playwright-browser-handler)
 [![npm downloads](https://img.shields.io/npm/dm/playwright-browser-handler.svg)](https://www.npmjs.com/package/playwright-browser-handler)
 [![tests](https://github.com/nivkman/playwright-browser-handler/actions/workflows/test.yml/badge.svg)](https://github.com/nivkman/playwright-browser-handler/actions/workflows/test.yml)
